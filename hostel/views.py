@@ -1,21 +1,21 @@
+from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
-from django.http import HttpResponse
-
-
-
-from .forms import ContactForm
+from django.db.models import Q
+from django.utils import timezone
 
 from hostel.about_us.models import AboutUs
 from hostel.activities.models import ActivitiesDescription, Activity, Event
+from hostel.carousel_images.models import CarouselImage
 from hostel.facilities.models import Facility
+from hostel.faqs.models import Faq
+from hostel.gallery_images.models import GalleryImage
 from hostel.location.models import Location
 from hostel.rooms.models import Room, RoomsDescription
-from hostel.gallery_images.models import GalleryImage
-from hostel.carousel_images.models import CarouselImage
-from hostel.terms.models import Terms
-from hostel.faqs.models import Faq
 from hostel.special_offers.models import SpecialOffer
+from hostel.terms.models import Terms
+from hostel.popups.models import Popup
+from .forms import ContactForm
 
 
 class EventView(TemplateView):
@@ -61,6 +61,20 @@ class HostelView(FormView):
         context['terms'] = Terms.objects.all().first()
         context['faqs'] = Faq.objects.all()
         context['special_offer'] = SpecialOffer.objects.all().first()
+
+        # Popups
+        now = timezone.now()
+
+        context['popup'] = Popup.objects.filter(
+            enabled=True
+        ).filter(
+            Q(visible_from__isnull=True) | Q(visible_from__lte=now)
+        ).filter(
+            Q(visible_until__isnull=True) | Q(visible_until__gte=now)
+        ).order_by(
+            'visible_until'
+        ).first()
+
         return context
 
     def form_valid(self, form):
