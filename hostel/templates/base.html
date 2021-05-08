@@ -1,0 +1,720 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>NUCAPACHA HOSTEL</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/ li:first-child {
+￼    margin-left: 0;
+}x|img/favicon.ico">
+
+    <!-- All css here -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<!-- Header Area Start -->
+<header class="header-area fixed header-sticky">
+    <div class="hidden-xs">
+        <div class="container">
+            <div class="row nav-top">
+                <div class="col-md-4 main-menu" style="padding: 14px 0">
+                    <ul id="menu-sixtyone-left-sp" >
+                        {% if lang == 'en' %}
+                            <li style="border: none;"><a href="/#about">About us</a></li>
+                            <li style="border: none;"><a href="/#location">Location</a></li>
+                            <li style="border: none;"><a href="/#contact_us">Contact Us</a></li>
+                            <li style="border: none;"><a href="#" data-toggle="modal" data-target="#faqModal">FAQ’s</a></li>
+                        {% elif lang  == 'es' %}
+                            <li style="border: none;"><a href="/#about">Hostel</a></li>
+                            <li style="border: none;"><a href="/#location">Ubicaci&oacute;n</a></li>
+                            <li style="border: none;"><a href="/#contact_us">Contacto</a></li>
+                            <li style="border: none;"><a href="#" data-toggle="modal" data-target="#faqModal">FAQ’s</a></li>
+                        {% endif %}
+
+                    </ul>
+                    {% if special_offer.is_active is True %}
+                        <a href="#" data-toggle="modal" data-target="#currentOfferModal">
+                            <p><i class="fas fa-thumbs-up"></i>
+                                {% if lang == 'en' %}
+                                    <u>CURRENT OFFER:</u> <span>{{ special_offer.title }}</span>
+                                {% elif lang  == 'es' %}
+                                    <u>OFERTA ESPECIAL:</u> <span>{{ special_offer.title_es }}</span>
+                                {% endif %}
+                            </p>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <div class="header-links">
+                        <div style="text-align: right; margin-bottom: 5px;">
+                            <a class="lang" style="color: #696C21" data-lang="lang/en" href="#">
+                                {% if lang == 'en' %}<strong><u>EN</u></strong>{% else %} EN {% endif %}
+                            </a> -
+                            <a class="lang" style=" color: #696C21" data-lang="lang/es" href="#">
+                                {% if lang == 'es' %}<strong><u>ES</u></strong>{% else %} ES {% endif %}
+                            </a>
+                        </div>
+                        <a target="_blank" href="https://www.facebook.com/hostel.nucapacha/"><i class="zmdi zmdi-facebook"></i></a>
+                        <a target="_blank" href="https://twitter.com/nucapacha"><i class="zmdi zmdi-twitter"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/hostel.nucapacha"><i class="zmdi zmdi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden-xs">
+        <div class="row main-nav">
+            <div class="col-md-4">
+                <div class="banner-btn">
+                    <a id="book-now" class="default-btn" href="#" data-toggle="modal" data-target="#bookModal">
+                        {% if lang == 'en' %}
+                            book now
+                        {% elif lang  == 'es' %}
+                            reservar
+                        {% endif %}
+                    </a>
+                </div>
+                <!--
+                <form action="index.html#" method="post" class="search-form">
+                    <div class="form-container fix">
+                        <div class="box-select">
+
+                        <button type="submit" class="search default-btn">Check Availability</button>
+                            <div class="select date">
+                                <input type="text" class=" datepicker" placeholder="ARRIVAL DATE">
+                                    <div class="input-group-addon hide">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+
+                            </div>
+                            <!--<div class="select date">
+                                <select name="departure">
+                                    <option>DEPARTURE DATE</option>
+                                    <option>13 FEB</option>
+                                    <option>22 JAN</option>
+                                    <option>26 JAN</option>
+                                    <option>15 FEB</option>
+                                    <option>02 MAR</option>
+                                    <option>12 MAR</option>
+                                    <option>23 APR</option>
+                                </select>
+                            </div>
+                            <div class="select arrow">
+                                <select name="adults">
+                                    <option>ADULTS</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option> li:first-child {
+￼    margin-left: 0;
+}5</option>
+                                    <option>6</option>
+                                </select>
+                            </div>--
+                            <div class="select arrow">
+                                <select name="nights">
+                                    <option>NIGHTS</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                -->
+            </div>
+            <div class="col-md-4 text-center" style="max-height: 50px;">
+                <div class="logo">
+                    <a href="/"><img src="static/img/logo/logo.png" alt="Nucapacha Hostel"  ></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Mainmenu Start -->
+                <div class="main-menu">
+                    <nav>
+                        <ul class="text-right" style="">
+                            <div class="row">
+                                <!--<li class="col-xs-4"><a href="#">HOME</a></li>-->
+                                <li class="col-xs-4 col-xs-offset-4"><a href="/#rooms">
+                                    {% if lang == 'en' %}
+                                        ROOMS
+                                    {% elif lang  == 'es' %}
+                                        HABITACIONES
+                                    {% endif %}
+                                </a></li>
+                                <li class="col-xs-4"><a href="/#facilities">
+                                    {% if lang == 'en' %}
+                                        FACILITIES
+                                    {% elif lang  == 'es' %}
+                                        SERVICIOS
+                                    {% endif %}
+                                </a></li>
+                            </div>
+                            <div class="row">
+                                <li class="col-xs-4 col-xs-offset-4"><a href="/#activities">
+                                    {% if lang == 'en' %}
+                                        ACTIVITIES
+                                    {% elif lang  == 'es' %}
+                                        ACTIVIDADES
+                                    {% endif %}
+                                </a></li>
+                                <li class="col-xs-4"><a href="/#gallery">
+                                    {% if lang == 'en' %}
+                                        GALLERY
+                                    {% elif lang  == 'es' %}
+                                        GALER&Iacute;A
+                                    {% endif %}
+                                </a></li>
+
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Mainmenu End -->
+            </div>
+        </div>
+
+    </div>
+    <!-- Mobile Menu Area start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul>
+                                <li style="border: none;"><a href="/#about">About us</a></li>
+                                <li style="border: none;"><a href="/#location">Location</a></li>
+                                <li style="border: none;"><a href="/#contact_us">Contact Us</a></li>
+                                <li style="border: none;"><a href="/#" data-toggle="modal" data-target="#faqModal">FAQ’s</a></li>
+                                <li><a href="/#rooms">ROOMS</a></li>
+                                <li><a href="/#facilities">FACILITIES</a></li>
+                                <li><a href="/#activities">ACTIVITIES</a></li>
+                                <li><a href="/#gallery">GALLERY</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area end -->
+</header>
+<!-- Header Area End -->
+{% block main %}
+{% endblock %}
+
+<!-- Footer Area Start -->
+<footer class="footer-area">
+    <!-- Footer Widget Start -->
+    <div class="footer-widget-area bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="single-footer-widget">
+                        <div class="footer-logo">
+                            <a href="/"><img src="static/img/logo/logo.png" alt="Nucapacha Hostel" height="150"></a>
+                        </div>
+                        <!--<p>Nucapacha is Quechua and means “OUR UNIVERSE”</p>
+                        <p>...and this is what our hostel means to us and more importantly, what we want to sha  re with you, our universe, our land.</p>-->
+                        <div class="social-icons">
+                            <a target="_blank" href="https://www.facebook.com/hostel.nucapacha/"><i class="zmdi zmdi-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/hostel.nucapacha"><i class="zmdi zmdi-instagram"></i></a>
+                            <a target="_blank" href="https://twitter.com/nucapacha"><i class="zmdi zmdi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="col-lg-4 hidden-md hidden-sm col-xs-12">
+                    <div class="single-footer-widget">
+                        <h3>quick links</h3>
+                        <ul class="footer-list">
+                            <li><a href="#" data-toggle="modal" data-target="#faqModal">FAQ</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#tcModal">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+                    <!--
+                    <div class="single-footer-widget">
+                        <h3>contact us!</h3>
+                        <br>
+                        <div class="c-info">
+                            <span><i class="zmdi zmdi-pin"></i></span>
+                            <span>Bálsamos Sur 308<br />Urdesa Central<br />Guayaquil - Ecuador</span>
+                        </div>
+                        <div class="c-info">
+                            <span><i class="zmdi zmdi-email"></i></span>
+                            <span>devitems@gmail.com<br>support@devitems.com</span>
+                        </div>
+                        <div class="c-info">
+                            <span><i class="zmdi zmdi-phone"></i></span>
+                            <span> (593) 4-261-0553<br> (593) 93-935-8897</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!--
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="single-footer-widget">
+                        <h3>collections</h3>
+                        <div class="instagram-image">
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/1.jpg" alt=""></a>
+                            </div>
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/2.jpg" alt=""></a>
+                            </div>
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/3.jpg" alt=""></a>
+                            </div>
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/4.jpg" alt=""></a>
+                            </div>
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/5.jpg" alt=""></a>
+                            </div>
+                            <div class="footer-img">
+                                <a href="room-grid.html"><img src="static/img/footer/6.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              -->
+            </div>
+        </div>
+    </div>
+    <!-- Footer Widget End -->
+    <!-- Footer Bottom Area Start -->
+    <div class="footer-bottom-area bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-text text-center">
+                        <span>Copyright © 2018 <a href="/">Nucapacha Hostel</a> All Right Reserved. <a href="#" data-toggle="modal" data-target="#tcModal">Terms & Conditions</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom Area End -->
+</footer>
+<!-- Footer Area End -->
+<!-- Large modal -->
+
+<div id="currentOfferModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Current Offer">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="currentOfferModalLabel">
+                    {% if lang == 'en' %}
+                        {{special_offer.title}}
+                    {% elif lang  == 'es' %}
+                        {{special_offer.title_es}}
+                    {% endif %}
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h2>
+                    {% if lang == 'en' %}
+                        -- ONLY HERE --
+                    {% elif lang  == 'es' %}
+                        -- SOLO AQUI --
+                    {% endif %}
+                </h2>
+                <p>
+                    {% if lang == 'en' %}
+                        {{special_offer.text|safe}}
+                    {% elif lang  == 'es' %}
+                        {{special_offer.text_es|safe}}
+                    {% endif %}
+                </p>
+                <div class="coupon">
+                    {% if lang == 'en' %}
+                        {{special_offer.code}}
+                    {% elif lang  == 'es' %}
+                        {{special_offer.code_es}}
+                    {% endif %}
+                </div>
+                <h3>
+                    {% if lang == 'en' %}
+                        BEST PRICE GUARANTEED
+                    {% elif lang  == 'es' %}
+                        MEJOR PRECIO GARANTIZADO
+                    {% endif %}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bookModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Book Now">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <iframe src="https://myallocator.com/booknow/Cob7cRvxOT2KhzPHZjcy5A" style="width: 100%; height: 400px; border: none" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+    </div>
+</div>
+<div id="faqModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="FAQ">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    {% if lang == 'en' %}
+                        FREQUENTLY ASKED QUESTIONS
+                    {% elif lang  == 'es' %}
+                        PREGUNTAS FRECUENTES
+                    {% endif %}
+                </h4>
+            </div>
+            <div class="modal-body">
+                {% if lang == 'en' %}
+
+                    <p>Besides this FAQ section, we invite you to read our T&Cs and groups guidelines. They exist to make sure that we start a relationship of mutual understanding and to make sure that Nucapacha is a safe, happy and welcoming place to stay. By confirming a reservation at Hostel Nucapacha, regardless if this sheet is signed, you are agreeing to all important points described.</p>
+
+                {% elif lang  == 'es' %}
+
+                <p>Adem&aacute;s de esta sección de preguntas frecuentes, lo invitamos a leer nuestros lineamientos de T&C y Grupos. Existen para asegurar que comencemos una relación de entendimiento mutuo y para asegurarnos de que Nucapacha sea un lugar seguro, feliz y acogedor donde alojarse. Al confirmar una reserva en Hostel Nucapacha, independientemente de si esta hoja est&aacute; firmada, est&aacute; aceptando todos los puntos importantes descritos.</p>
+
+                {% endif %}
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    {% for faq in faqs %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
+                                <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                                    {% if lang == 'en' %}
+                                        {{faq.question}}
+                                    {% elif lang  == 'es' %}
+                                        {{faq.question_es}}
+                                    {% endif %}
+                                </h4>
+                            </div>
+                            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse {% if forloop.counter == 1 %} in {% endif %}" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
+                                <div class="panel-body">
+                                    <p>
+                                        {% if lang == 'en' %}
+                                            {{faq.answer}}
+                                        {% elif lang  == 'es' %}
+                                            {{faq.answer_es}}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!--
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Where is the hostel located? Is it close to the city center?
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <p>
+                                    We are located in Urdesa Central, this is 15 to 20 minutes away from what is known as the city center. Due to the exorbitant growing of Guayaquil, Urdesa is the geographical center of the city and what you may know as the ‘centro’ would actually be the geographical east. Urdesa is a beautiful upscale neighborhood that lies on the estuary side, in spite of the commercial activity on the main streets, the mayor has successfully achieved that the side streets remain a residential area. We are two blocks away from the main avenue Victor Emilio Estrada, where you can find many banks, restaurants, retail stores, bars, and office buildings.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                How do I get from the bus terminal/airport to the hostel
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <p>Public transportation in Ecuador can be a little bit messy and although we are sure after a few days you’ll become an expert, we highly recommend that for getting here you take a taxi. It’s easier and safer is you are with all your bags. Check out the hostel <a href="/#location">location</a> pages for directions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTree">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree">
+                                Are you close to public transportation?
+                            </h4>
+                        </div>
+                        <div id="collapseTree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTree">
+                            <div class="panel-body">
+                                <p>We are only 2 blocks away from one of the main avenues in the city were you can get access to a lot of buses that will drive you pretty much everywhere in the city.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                Can children under 18 years old, stay at the hostel?
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <p>Children under 18 must be booked in private rooms and always accompanied with adults.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                How do I cancel or amend my reservation?
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <p>If you’ve booked directly with us, you can cancel up to 24 hours before arrival without charge. See our Terms & Conditions for more information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSix">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                Do you accept credit cards?
+                            </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                            <div class="panel-body">
+                                <p>Credit cards are accepted through TAB app, which charges a 4% fee. The advantages of this app is that you won’t have to pay foreign card usage fees to your bank and it uses pure exchange rates with no hidden commission.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSeven">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                How do I make a group booking?
+                            </h4>
+                        </div>
+                        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                            <div class="panel-body">
+                                <p>If there’s 15 or more of you who’d like to book to stay with us, please get in touch with us trough contact@nucapacha.com to handle it directly. Please note that we are not a party hostel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingEight">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                                Will my friends and I all be in the same room?
+                            </h4>
+                        </div>
+                        <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                            <div class="panel-body">
+                                <p>We do our very best to make sure you and your friends are all placed in the same room. However it also depends on our availability. If you wish to have a room for you and your friends we always recommend to book a private room instead of beds in the dorm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingNine">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                What’s the difference between a twin room and a double room?
+                            </h4>
+                        </div>
+                        <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                            <div class="panel-body">
+                                <p>A twin room is a room that has one bunk bed and a double room is a room that has one double bed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                                What time is check in and check out?
+                            </h4>
+                        </div>
+                        <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+                            <div class="panel-body">
+                                <p>Check in is from 2:00pm. Our Receptions are open 24/7, so if you’re arriving late, just let us know! If you arrive before 2:00pm, feel free to leave your bag in the free luggage room and get out and explore the city! If you’re leaving any valuables, make sure to rent a secure locker.  Please keep in mind that, as a hostel, our rooms are rented by the night rather than the day, so 5:00am is still considered to be the previous night and you’ll be charge full price. If you are planing on arriving before 7am we recommend you to book the night before.
+                                    You’ll need to be packed up and out of your room by 12pm on the day that you’re leaving. Please drop your key back at Reception – other guests can use it after you!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingEleven">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                                Do you provide bed linen and towels?
+                            </h4>
+                        </div>
+                        <div id="collapseEleven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwelve">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
+                                Can I store my bags for a little while after check-out?
+                            </h4>
+                        </div>
+                        <div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve">
+                            <div class="panel-body">
+                                <p>If you aren’t leaving the city until later in the day, you can leave your bag in the free luggage room and carry on exploring, you are welcome to hang around our facilities until 7pm. Please take this into consideration for booking your flight/bus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThirteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="true" aria-controls="collapseThirteen">
+                                Can I bring alcohol into the hostel?
+                            </h4>
+                        </div>
+                        <div id="collapseThirteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirteen">
+                            <div class="panel-body">
+                                <p>We are sorry but due to our license, we can not allowed our guests to bring alcohol inside our premises. You are welcome to buy it here or head down to one of the bars in the area.   If you bring alcohol into the hostel, the alcohol will be confiscated and you’ll be fined. Your alcohol will be returned to you when you leave the hostel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFourteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#cheadingFourteen" aria-expanded="true" aria-controls="headingFourteen">
+                                Can I smoke/vape in the hostels?
+                            </h4>
+                        </div>
+                        <div id="cheadingFourteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourteen">
+                            <div class="panel-body">
+                                <p>You’re welcome to smoke/vape in outside areas of the hostel. we have plenty, just make sure you don’t do throw cigarette butts in the flowerbeds; plants hate that. Also, would it be too much to ask you not to smoke when there are kids near you?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFifteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen" aria-expanded="true" aria-controls="collapseFifteen">
+                                What's for breakfast?
+                            </h4>
+                        </div>
+                        <div id="collapseFifteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFifteen">
+                            <div class="panel-body">
+                                <p>As a thank you for staying with us, a complimentary breakfast including toast, eggs, natural juice and fresh brew coffee is served from 7:30 to 10:00 am.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSixteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSixteen" aria-expanded="true" aria-controls="collapseSixteen">
+                                Where can I park?
+                            </h4>
+                        </div>
+                        <div id="collapseSixteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSixteen">
+                            <div class="panel-body">
+                                <p>We have space for 2 cars in our building. [We do not offer parking for buses, please ensure that drivers are fully aware of this and have organised proper parking for buses prior to arrival]. If for some reason, both parking spots are taken, you can park in the street.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSeventeen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventeen" aria-expanded="true" aria-controls="collapseSeventeen">
+                                Can guests use the kitchen?
+                            </h4>
+                        </div>
+                        <div id="collapseSeventeen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeventeen">
+                            <div class="panel-body">
+                                <p>For sure! Our guest kitchen is open from 11am to 10pm. It is equipped with an oven, gas stove, fridges and a selection of pots, pans and dishes for cooking. Please wash up your dishes after use, so that they are available for other guests.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingEighteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEighteen" aria-expanded="true" aria-controls="collapseEighteen">
+                                Can I volunteer?
+                            </h4>
+                        </div>
+                        <div id="collapseEighteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEighteen">
+                            <div class="panel-body">
+                                <p>Yes! We offer a range of opportunities for volunteers. Read more on our volunteering page</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingNineteen">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNineteen" aria-expanded="true" aria-controls="collapseNineteen">
+
+                            </h4>
+                        </div>
+                        <div id="collapseNineteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNineteen">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tcModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Terms & Conditions">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="Terms & Conditions">
+                    {% if lang == 'en' %}
+                        {{terms.title}}
+                    {% elif lang  == 'es' %}
+                        {{terms.title_es}}
+                    {% endif %}
+                </h4>
+            </div>
+            <div class="modal-body">
+                {% if lang == 'en' %}
+                    {{terms.text|safe}}
+                {% elif lang  == 'es' %}
+                    {{terms.text_es|safe}}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- All js here -->
+<script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/owl.carousel.min.js"></script>
+<script src="static/js/ajax-mail.js"></script>
+<script src="static/js/jquery.ajaxchimp.min.js"></script>
+<script src="static/js/jquery.meanmenu.js"></script>
+<script src="static/js/jquery.counterup.min.js"></script>
+<script src="static/js/waypoints.min.js"></script>
+<script src="static/js/isotope.pkgd.min.js"></script>
+<script src="static/js/imagesloaded.pkgd.min.js"></script>
+<script src="static/js/jquery.magnific-popup.js"></script>
+<script src="static/js/plugins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<script src="static/js/parallax.min.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
+

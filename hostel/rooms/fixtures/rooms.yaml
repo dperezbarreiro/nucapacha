@@ -1,0 +1,33 @@
+- model: rooms.roomsdescription
+  pk: 1
+  fields: {
+    title: "Rooms",
+    text: "",
+    title_es: "Habitaciones",
+    text_es: ""
+  }
+
+- model: rooms.room
+  pk: 1
+  fields: {room: 'Single',
+    price_private: 28, price_shared: 23}
+- model: rooms.room
+  pk: 2
+  fields: {room: 'Double',
+    price_private: 35, price_shared: 29}
+- model: rooms.room
+  pk: 3
+  fields: {room: 'Triple',
+    price_private: 46.5, price_shared: 39}
+- model: rooms.room
+  pk: 4
+  fields: {room: 'Room for 4',
+    price_private: 62, price_shared: 52}
+- model: rooms.room
+  pk: 5
+  fields: {room: 'Room for 5',
+    price_private: 77.5, price_shared: 65}
+- model: rooms.room
+  pk: 6
+  fields: {room: 'Dorm (price per person)',
+    price_private: , price_shared: 11.5}

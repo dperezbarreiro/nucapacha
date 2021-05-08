@@ -1,0 +1,8 @@
+- model: facilities.facility
+  pk: 1
+  fields: {
+    title: "Facilitites",
+    text: "",
+    title_es: "Servicios",
+    text_es: ""
+  }

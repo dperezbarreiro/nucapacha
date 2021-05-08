@@ -1,0 +1,9 @@
+- model: about_us.aboutus
+  pk: 1
+  fields: {
+    video_URL: '/video_intro.mp4',
+    title: "About us",
+    text: "Nucapacha is the best backpackers hostel in Guayaquil. A hostel built in order to fit your needs and help you enjoy the hostel life while traveling. We provide affordable accommodation for backpackers and travelers who enjoy a chill, peaceful and cosy place to stay in while in the city chaos.",
+    title_es: "Acerca nuestro",
+    text_es: ""
+  }

@@ -1,0 +1,8 @@
+- model: activities.activitiesdescription
+  pk: 1
+  fields: {
+    title: "Activities",
+    text: "",
+    title_es: "Actividades",
+    text_es: ""
+  }

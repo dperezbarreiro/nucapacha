@@ -1,0 +1,865 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<!-- Background Area Start -->
+<section class="slider-area" style="padding-top: 0px!important;">
+    <div class="slider-wrapper">
+        {% for slide in carousel_images %}
+            <div class="single-slide" style="background-image: url({{ slide.image.url }});">
+                <div class="banner-content overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="text-content-wrapper">
+                                    <div class="text-content text-center">
+                                        {% if lang == 'en' %}
+                                            <h1 class="pt-180">{{ slide.title }}</h1>
+                                            <p>{{ slide.subtitle }}</p>
+                                        {% elif lang  == 'es' %}
+                                            <h1 class="pt-180">{{ slide.title_es }}</h1>
+                                            <p>{{ slide.subtitle_es }}</p>
+                                        {% endif %}
+
+                                        <div class="banner-btn">
+                                            <a href="#" data-toggle="modal" data-target="#bookModal" class="default-btn">
+                                            {% if lang == 'en' %}
+                                                book now
+                                            {% elif lang  == 'es' %}
+                                                reservar
+                                            {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- Background Area End -->
+<!-- About Us Area Start -->
+<section id="about" class="about-area">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/16.jpg">
+        {% if lang == 'en' %}
+            <h3>{{ about_us.title }}</h3>
+        {% elif lang  == 'es' %}
+            <h3>{{ about_us.title_es }}</h3>
+        {% endif %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <video width="100%" height="auto" controls>
+                    <source src="static/video-intro.mp4" type="video/mp4">
+                    Your browser does not support the video HTML tag.
+                </video>
+                <!--
+                <div class="video-wrapper mt-90">
+                    <div class="video-overlay">
+                        <img src="static/img/banner/4.jpg" alt="" height="350">
+                    </div>
+                    <a class="video-popup" href="video-intro.mp4">
+                        <i class="zmdi zmdi-play-circle-outline"></i>
+                    </a>
+                </div>
+                -->
+            </div>
+            <div class="col-md-5 col-md-offset-1 col-xs-12">
+                {% if lang == 'en' %}
+                    {{ about_us.text|safe }}
+                {% elif lang  == 'es' %}
+                    {{ about_us.text_es|safe }}
+                {% endif %}
+                <!--
+                <p>Nucapacha is the best backpackers hostel in Guayaquil.</p>
+                <p>A hostel built in order to fit your needs and help you enjoy the hostel life while traveling.</p>
+                <p>We provide affordable accommodation for backpackers and travelers who enjoy a chill, peaceful and cosy place to stay in while in the city chaos.</p>
+-->
+                <div class="about-links text-center">
+                    <a href="https://www.facebook.com/hostel.nucapacha/"><i class="zmdi zmdi-facebook"></i></a>
+                    <a href="https://www.instagram.com/hostel.nucapacha"><i class="zmdi zmdi-instagram"></i></a>
+                    <a href="https://twitter.com/nucapacha"><i class="zmdi zmdi-twitter"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Us Area End -->
+<!-- Room Area Start -->
+<section id="rooms" class="room-area pt-90 fix">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/13.jpg">
+        <h3>
+        {% if lang == 'en' %}
+            {{ rooms_description.title }}
+        {% elif lang  == 'es' %}
+            {{ rooms_description.title_es }}
+        {% endif %}
+            </h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+            {% if lang == 'en' %}
+                {{ rooms_description.text|safe }}
+            {% elif lang  == 'es' %}
+                {{ rooms_description.text_es|safe }}
+            {% endif %}
+                </p><br>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="single-room">
+            <a href="#" style="background-image: url('static/img/rooms/24.jpg')"></a>
+            <div class="room-hover text-center">
+                <div class="hover-text">
+                    <h3><a href="#">Single Room</a></h3>
+                    <div class="room-btn">
+                        <a href="#" class="default-btn" data-toggle="modal" data-target="#bookModal">
+                            {% if lang == 'en' %}
+                                book now
+                            {% elif lang  == 'es' %}
+                                reservar
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="p-amount">
+                    <!--<span>$28 (private bathroom)</span>-->
+                    <span class="count">Starting at</span>
+                    <span>$ {{rooms.0.price_shared|floatformat}}</span>
+                    <span class="count">Per Night</span>
+                </div>
+            </div>
+        </div>
+        <div class="single-room">
+            <a href="#" style="background-image: url('static/img/rooms/23.jpg')"></a>
+            <div class="room-hover text-center">
+                <div class="hover-text">
+                    <h3><a href="#">Double Room</a></h3>
+                    <div class="room-btn">
+                        <a href="#" class="default-btn" data-toggle="modal" data-target="#bookModal">
+                            {% if lang == 'en' %}
+                                book now
+                            {% elif lang  == 'es' %}
+                                reservar
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="p-amount">
+                    <!--<span>$25 (private bathroom)</span>-->
+                    <span class="count">Starting at</span>
+                    <span>$ {{rooms.1.price_shared|floatformat}}</span>
+                    <span class="count">Per Night</span>
+                </div>
+            </div>
+        </div>
+        <div class="single-room">
+            <a href="#" style="background-image: url('static/img/rooms/4.jpg')"></a>
+            <div class="room-hover text-center">
+                <div class="hover-text">
+                    <h3><a href="#">Triple Room</a></h3>
+                    <div class="room-btn">
+                        <a href="#" class="default-btn" data-toggle="modal" data-target="#bookModal">
+                            {% if lang == 'en' %}
+                                book now
+                            {% elif lang  == 'es' %}
+                                reservar
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="p-amount">
+                    <!--<span>$46.5 (private bathroom)</span>-->
+                    <span class="count">Starting at</span>
+                    <span>$ {{rooms.2.price_shared|floatformat}}</span>
+                    <span class="count">Per Night</span>
+                </div>
+            </div>
+        </div>
+        <div class="single-room">
+            <a href="#" style="background-image: url('static/img/rooms/17.jpg')"></a>
+            <div class="room-hover text-center">
+                <div class="hover-text">
+                    <h3><a href="#">Dorm</a></h3>
+                    <div class="room-btn">
+                        <a href="#" class="default-btn" data-toggle="modal" data-target="#bookModal">
+                            {% if lang == 'en' %}
+                                book now
+                            {% elif lang  == 'es' %}
+                                reservar
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="p-amount">
+                    <span class="count">Starting at</span>
+                    <span>$ {{rooms.5.price_shared|floatformat}}</span>
+                    <span class="count">Per Night</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Room Area End -->
+<!-- Services Area Start -->
+<section id="facilities" class="services-area pt-90">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/2.jpg">
+        <h3>
+            {% if lang == 'en' %}
+                {{ facilities.title }}
+            {% elif lang  == 'es' %}
+                {{ facilities.title_es }}
+            {% endif %}
+        </h3>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                {% if lang == 'en' %}
+                    {{ facilities.text|safe }}
+                {% elif lang  == 'es' %}
+                    {{ facilities.text_es|safe }}
+                {% endif %}
+                <!--<p>Our facilities are designed to offer a friendly atmosphere where you’ll find it easy to create a community among travelers.</p><br><br>
+                <p>Guests can enjoy a very sunny day on our pool while enjoying a drink or even piece of seasonal fruit from our own backyard or sharing a meal with fellow travelers.
+                </p>-->
+            </div>
+            <div class="col-xs-12">
+                <div class="row text-center" style="margin: 30px auto">
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/wifi-icon.svg" alt="">
+                        <p class="title">Wireless</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/pool-icon.svg" alt="">
+                        <p class="title">Pool</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/lockers-icon.svg" alt="">
+                        <p class="title">Dormis with<br>Lockers</p>
+                    </div>
+                </div>
+                <div class="row text-center" style="margin: 30px auto">
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/book-exchange-icon.svg" alt="">
+                        <p class="title">Book Exchange</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/complimentary-breakfast-icon.svg" alt="">
+                        <p class="title">Complimentary<br>Breakfast</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/tv-icon.png" alt="">
+                        <p class="title">TV Room</p>
+                    </div>
+                </div>
+                <div class="row text-center" style="margin: 30px auto">
+                    <div class="col-xs-4 single-facility">
+                        <i class="far fa-map" style="font-size: 50px;
+    line-height: 79px;"></i>
+                        <p class="title">Maps</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/laundry-icon.svg" alt="">
+                        <p class="title">Laundry Service</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/bar-icon.png" alt="">
+                        <p class="title">Bar</p>
+                    </div>
+                </div>
+                <div class="row text-center" style="margin: 30px auto">
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/pick-up-service-icon.svg" alt="">
+                        <p class="title">Pick up<br>Service</p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/laugagge-storage-icon.svg" alt="">
+                        <p class="title">Lugagge storage </p>
+                    </div>
+                    <div class="col-xs-4 single-facility">
+                        <img src="static/img/nuca-icons/kitchen-icon.svg" alt="">
+                        <p class="title">Kitchen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Activitties Area Start -->
+<section id="activities" class="room-area pt-40 room-grid">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/4.jpg">
+        <h3>
+        {% if lang == 'en' %}
+            {{ activities.title }}
+        {% elif lang  == 'es' %}
+            {{ activities.title_es }}
+        {% endif %}
+        </h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                {% if lang == 'en' %}
+                    {{ activities.text|safe }}
+                {% elif lang  == 'es' %}
+                    {{ activities.text_es|safe }}
+                {% endif %}
+                <!--<p>Nucapacha is preparing different activities for you to get to know a side of Guayaquil that you did not know and become a real guayaco.
+                    Come join us on our tours, all of them guided in a fun and interactive way, by english-spanish speaking Guayaquile&ntilde;os!</p>
+                <p>We want you to live the city as locals do, and understand why we love it here.</p>-->
+            </div>
+        </div>
+        
+            
+           
+            {% for event in events %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-room">
+                        <img class="img-responsive" src="{{event.image.url}}" alt="">
+                        <div class="room-hover text-center">
+                            <div class="hover-text">
+                                <h3><a href="#">
+                                    {% if lang == 'en' %}
+                                        {{event.title}}
+                                    {% elif lang  == 'es' %}
+                                        {{event.title_es}}
+                                    {% endif %}
+                                </a></h3>
+
+                                    {% if lang == 'en' %}
+                                        {{ event.text|safe }}
+                                    {% elif lang  == 'es' %}
+                                        {{ event.text_es|safe }}
+                                    {% endif %}
+
+                                <div class="room-btn">
+                                    <a href="{{event.url}}" class="default-btn activity-btn">
+                                        {% if lang == 'en' %}
+                                            MORE INFO
+                                        {% elif lang  == 'es' %}
+                                            MAS INFO
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Services Area End -->
+<!-- Fun Factor Area Start --
+<section class="fun-factor-area bg-1 overlay-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="single-fun-factor text-center">
+                    <h1><span class="counter">2353</span></h1>
+                    <h4>new friendships</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="single-fun-factor text-center">
+                    <h1><span class="counter">987</span></h1>
+                    <h4>five start ratings</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="single-fun-factor text-center">
+                    <h1><span class="counter">4035</span></h1>
+                    <h4>international guests</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="single-fun-factor text-center">
+                    <h1><span class="counter">9739</span></h1>
+                    <h4>served breakfast</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fun Factor Area End -->
+<!-- Location Area Start -->
+<section id="location" class="gallery-area pt-90">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/14.jpg">
+        <h3>
+         {% if lang == 'en' %}
+            {{ location.title }}
+        {% elif lang  == 'es' %}
+            {{ location.title_es }}
+        {% endif %}
+        </h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+            {% if lang == 'en' %}
+                {{ location.text|safe }}
+            {% elif lang  == 'es' %}
+                {{ location.text_es|safe }}
+            {% endif %}
+            </div>
+            <!--
+            <div class="col-md-6 col-xs-12">
+                <p>We are located on a peaceful street in Urdesa Central, one of the most popular and pleasant neighborhood in the city, with lots of restaurants and centrally located within the city.
+                </p>
+
+                <p>Public transportation in Guayaquil might seem a little chaotic at first, so we think that the best way to get to Nucapacha if you just got to the city is by taxi.
+                </p>
+                <p>
+                    From the bus terminal: $4<br>
+                    From the airport: $5<br>
+                    We also offer pickup services for $10<br>
+                </p>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <p>
+                    Taxis to Nucapacha cost only $4 to $5 from this places and takes about 15 minutes to get there. If you take a taxi from inside the bus terminal or airport you should not have a problem. Most of them are already familiar with the hostel.
+                </p>
+
+                <p>Once you arrive at the hostel, we'll be more than happy to show you in a map where to take buses you'll need to move around the city. If you still want directions to get here by bus, please send us an email and we’ll give you step by step directions.
+                </p>
+            </div>
+            -->
+        </div>
+    </div>
+    </div>
+</section>
+<div class="google-map-area">
+    <!--  Map Section -->
+    <div id="contacts" class="map-area">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.946136731125!2d-79.91066668563069!3d-2.174168637851371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d6dedfa7b6a23%3A0x73c32217ac451cf0!2sHostel+Nucapacha!5e0!3m2!1ses-419!2sec!4v1524782947548" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Gallery Area Start -->
+<section id="gallery" class="gallery-area pt-90">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/15.jpg">
+        <h3>
+           {% if lang == 'en' %}
+                gallery
+            {% elif lang  == 'es' %}
+                galer&iacute;a
+            {% endif %}
+        </h3>
+    </div>
+    <div class="gallery-container">
+        <div class="gallery-filter">
+            <button data-filter="*" class="active"> All</button>
+            <button data-filter=".pool-bar">Pool & Bar</button>
+            <button data-filter=".breakfast">Dining Room & Breakfast</button>
+            <button data-filter=".tv">TV Room</button>
+            <button data-filter=".rooms">Guest Rooms</button>
+        </div>
+        <div class="gallery gallery-masonry">
+        {% for image in gallery_images %}
+            <div class="gallery-item {{ image.category }}">
+                <div class="thumb">
+                    <img src="{{ image.image.url }}" alt="">
+                </div>
+                <div class="gallery-hover">
+                    <div class="gallery-icon">
+                        <a href="index.html#">
+                            <span class="p-img"><img src="static/img/icon/link.png" alt=""></span>
+                            <span class="s-img"><img src="static/img/icon/link-hover.png" alt=""></span>
+                        </a>
+                        <a class="image-popup" href="{{ image.image.url }}">
+                            <span class="p-img"><img src="static/img/icon/search.png" alt=""></span>
+                            <span class="s-img"><img src="static/img/icon/search-hover.png" alt=""></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+<hr />
+<!-- Gallery Area End -->
+<section id="contact_us" class="contact-form-area pt-90">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/11.jpg">
+        <h3>
+            {% if lang == 'en' %}
+                contact us
+            {% elif lang  == 'es' %}
+                contact&aacute;nos
+            {% endif %}
+        </h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="contact-title">
+                    {% if lang == 'en' %}
+                        details
+                    {% elif lang  == 'es' %}
+                        detalles
+                    {% endif %}
+                </h4>
+                <div class="contact-text">
+                    <p><span class="c-icon"><i class="zmdi zmdi-phone"></i></span><span class="c-text">(593) 4-261-0553 <br> (593) 93-935-8897</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-email"></i></span><span class="c-text">contact@nucapacha.com</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-pin"></i></span><span class="c-text">Bálsamos Sur 308<br />Urdesa Central<br />Guayaquil - Ecuador</span></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h4 class="contact-title">
+                    {% if lang == 'en' %}
+                        send your message
+                    {% elif lang  == 'es' %}
+                        envia tu mensaje
+                    {% endif %}
+                </h4>
+                <form id="contact-form" action="" method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    {% if lang == 'en' %}
+                        <input type="submit" value="Send message" />
+                    {% elif lang  == 'es' %}
+                        <input type="submit" value="Enviar mensaje" />
+                    {% endif %}
+
+                </form>
+                <!--<form action="http://devitems.com/preview/hotel-atr/mail.php" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="contact-name" type="text" name="name" placeholder="Enter Name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" placeholder="Enter Email">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea id="contact-text" name="message" cols="30" rows="10" placeholder="Message here"></textarea>
+                            <button type="submit" class="default-btn">SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+                -->
+                <p class="form-messege"></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Area Start --
+<section class="team-area ptb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title text-center">
+                    <h3>our special staff</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellente sque vel volutpat felis, eu condimentum massa. Pellentesque mollis eros vel mattis tempor. Aliquam </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="single-team">
+                    <div class="team-image"><img src="static/img/team/1.jpg" alt=""></div>
+                    <div class="team-hover">
+                        <h4>Kathy Luis</h4>
+                        <span class="block">( Officer )</span>
+                        <p>Lorem ipsupm dolor sit amet, conse ctetur adipisicing elit, sed do eiumthgtipsupm dolor sit amet conse</p>
+                        <div class="team-links">
+                            <a href="https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="single-team">
+                    <div class="team-image"><img src="static/img/team/2.jpg" alt=""></div>
+                    <div class="team-hover">
+                        <h4>Them Jonse</h4>
+                        <span class="block">( Manager )</span>
+                        <p>Lorem ipsupm dolor sit amet, conse ctetur adipisicing elit, sed do eiumthgtipsupm dolor sit amet conse</p>
+                        <div class="team-links">
+                            <a href="https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="single-team">
+                    <div class="team-image"><img src="static/img/team/3.jpg" alt=""></div>
+                    <div class="team-hover">
+                        <h4>Marry Gomej</h4>
+                        <span class="block">( Leader )</span>
+                        <p>Lorem ipsupm dolor sit amet, conse ctetur adipisicing elit, sed do eiumthgtipsupm dolor sit amet conse</p>
+                        <div class="team-links">
+                            <a href="https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Area End --
+<!-- Advertise Area Start --
+<section class="advertise-area bg-2 overlay-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="advertise-text">
+                    <h1>get <span>15% off</span> on any other events... </h1>
+                    <a href="index.html#" class="default-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Advertise Area End -
+<!-- Pricing Area Start --
+<section class="pricing-area ptb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title text-center">
+                    <h3>Our Pricing</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellente sque vel volutpat felis, eu condimentum massa. Pellentesque mollis eros vel mattis tempor. Aliquam </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="single-pricing">
+                    <div class="package-name">
+                        <h3>Silver Pack</h3>
+                        <h1><span class="currency">$</span>150 <span class="count">/per night</span></h1>
+                    </div>
+                    <div class="package-offer">
+                        <span>Flight Ticket</span>
+                        <span>Music Concert (30% Off)</span>
+                        <span>Restaurant (Lunch)</span>
+                        <span class="light">Treatment</span>
+                        <span class="light">Face Make</span>
+                    </div>
+                    <div class="signup-btn">
+                        <a href="index.html#" class="default-btn">SIGN UP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="single-pricing">
+                    <div class="package-name">
+                        <h3>Gold Pack</h3>
+                        <h1><span class="currency">$</span>140 <span class="count">/per night</span></h1>
+                    </div>
+                    <div class="package-offer">
+                        <span>Flight Ticket</span>
+                        <span>Music Concert (30% Off)</span>
+                        <span>Restaurant (Lunch)</span>
+                        <span>Treatment</span>
+                        <span class="light">Face Make</span>
+                    </div>
+                    <div class="signup-btn">
+                        <a href="index.html#" class="default-btn">SIGN UP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="single-pricing">
+                    <div class="package-name">
+                        <h3>Diamond Pack</h3>
+                        <h1><span class="currency">$</span>190 <span class="count">/per night</span></h1>
+                    </div>
+                    <div class="package-offer">
+                        <span>Flight Ticket</span>
+                        <span>Music Concert (30% Off)</span>
+                        <span>Restaurant (Lunch)</span>
+                        <span>Treatment</span>
+                        <span>Face Make</span>
+                    </div>
+                    <div class="signup-btn">
+                        <a href="index.html#" class="default-btn">SIGN UP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pricing Area End --
+<!-- Blog Area Start --
+<section class="blog-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="section-title text-center">
+                    <h3>our blog</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim exercitation ullamco laboris nisi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="blog-carousel">
+                <div class="col-xs-12">
+                    <div class="single-blog-wrapper">
+                        <div class="single-blog">
+                            <div class="blog-image">
+                                <img src="static/img/blog/1.jpg" alt="">
+                            </div>
+                            <div class="blog-text">
+                                <span class="time"><i class="zmdi zmdi-time"></i>Jun 25, 2017</span>
+                                <h3>Blog Post Dumy Title</h3>
+                            </div>
+                        </div>
+                        <div class="blog-hover">
+                            <span><i class="zmdi zmdi-time"></i>Jun 25, 2017</span>
+                            <h3><a href="index.html#">Blog Post Dummy Title</a></h3>
+                            <p>Adipisicing elit, sed cddsz do eiusmod tempor incididunt adipisicing elit, sed do eiusmod tempor incididunt dolore enim </p>
+                            <div class="post-info">
+                                <span><a href="index.html#"><i class="zmdi zmdi-account"></i>By A Mollik</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-favorite"></i>20 Likes</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-comments"></i>02 Comments</a></span>
+                            </div>
+                            <a href="index.html#" class="default-btn">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="single-blog-wrapper">
+                        <div class="single-blog">
+                            <div class="blog-image">
+                                <img src="static/img/blog/2.jpg" alt="">
+                            </div>
+                            <div class="blog-text">
+                                <span class="time"><i class="zmdi zmdi-time"></i>Mar 03, 2017</span>
+                                <h3>Blog Post Dumy Title</h3>
+                            </div>
+                        </div>
+                        <div class="blog-hover">
+                            <span><i class="zmdi zmdi-time"></i>Mar 03, 2017</span>
+                            <h3><a href="index.html#">Blog Post Dummy Title</a></h3>
+                            <p>Adipisicing elit, sed cddsz do eiusmod tempor incididunt adipisicing elit, sed do eiusmod tempor incididunt dolore enim </p>
+                            <div class="post-info">
+                                <span><a href="index.html#"><i class="zmdi zmdi-account"></i>By R James</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-favorite"></i>40 Likes</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-comments"></i>01 Comments</a></span>
+                            </div>
+                            <a href="index.html#" class="default-btn">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="single-blog-wrapper">
+                        <div class="single-blog">
+                            <div class="blog-image">
+                                <img src="static/img/blog/3.jpg" alt="">
+                            </div>
+                            <div class="blog-text">
+                                <span class="time"><i class="zmdi zmdi-time"></i>Dec 17, 2017</span>
+                                <h3>Blog Post Dumy Title</h3>
+                            </div>
+                        </div>
+                        <div class="blog-hover">
+                            <span><i class="zmdi zmdi-time"></i>Dec 17, 2017</span>
+                            <h3><a href="index.html#">Blog Post Dummy Title</a></h3>
+                            <p>Adipisicing elit, sed cddsz do eiusmod tempor incididunt adipisicing elit, sed do eiusmod tempor incididunt dolore enim </p>
+                            <div class="post-info">
+                                <span><a href="index.html#"><i class="zmdi zmdi-account"></i>By N Sharif</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-favorite"></i>10 Likes</a></span>
+                                <span><a href="index.html#"><i class="zmdi zmdi-comments"></i>20 Comments</a></span>
+                            </div>
+                            <a href="index.html#" class="default-btn">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Area End -->
+<!-- Client Area Start --
+<div class="client-area">
+    <div class="container">
+        <div class="row">
+            <div class="client-carousel">
+                <div class="single-client">
+                    <div class="client-image">
+                        <a href="index.html#">
+                            <img src="static/img/client/1.png" alt="" class="p-img">
+                            <img src="static/img/client/1-hover.png" alt="" class="s-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="single-client">
+                    <div class="client-image">
+                        <a href="index.html#">
+                            <img src="static/img/client/2.png" alt="" class="p-img">
+                            <img src="static/img/client/2-hover.png" alt="" class="s-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="single-client">
+                    <div class="client-image">
+                        <a href="index.html#">
+                            <img src="static/img/client/3.png" alt="" class="p-img">
+                            <img src="static/img/client/3-hover.png" alt="" class="s-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="single-client">
+                    <div class="client-image">
+                        <a href="index.html#">
+                            <img src="static/img/client/4.png" alt="" class="p-img">
+                            <img src="static/img/client/4-hover.png" alt="" class="s-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="single-client">
+                    <div class="client-image">
+                        <a href="index.html#">
+                            <img src="static/img/client/5.png" alt="" class="p-img">
+                            <img src="static/img/client/5-hover.png" alt="" class="s-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Client Area End -->
+<!-- Newsletter Area Start --
+<section class="newsletter-area bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-sm-12 col-xs-12">
+                <div class="newsletter-container">
+                    <h3>NewsLetter Sign-Up</h3>
+                    <div class="newsletter-form">
+                        <form action="index.html#" id="mc-form" class="mc-form fix">
+                            <input id="mc-email" type="email" name="email" placeholder="Enter your E-mail">
+                            <button id="mc-submit" type="submit" class="default-btn">subcribes</button>
+                        </form>
+                        <!-- mailchimp-alerts Start --
+                        <div class="mailchimp-alerts">
+                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end --
+                            <div class="mailchimp-success"></div><!-- mailchimp-success end --
+                            <div class="mailchimp-error"></div><!-- mailchimp-error end --
+                        </div>
+                        <!-- mailchimp-alerts end --
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Newsletter Area End -->
+{% endblock %}

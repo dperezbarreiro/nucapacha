@@ -1,0 +1,8 @@
+- model: terms.terms
+  pk: 1
+  fields: {
+    title: "TERMS & CONDITIONS - GROUP GUIDELINES",
+    text: "",
+    title_es: "TERMINOS Y CONDICIONES - PAUTAS DE GRUPOS",
+    text_es: ""
+  }

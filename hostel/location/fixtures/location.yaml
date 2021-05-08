@@ -1,0 +1,8 @@
+- model: location.location
+  pk: 1
+  fields: {
+    title: "Location",
+    text: "",
+    title_es: "Ubicacion",
+    text_es: ""
+  }

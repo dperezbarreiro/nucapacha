@@ -1,0 +1,8 @@
+- model: special_offers.specialoffer
+  pk: 1
+  fields: {
+    title: '10% discount facebook fan',
+    text: 'Book direct and save
+Use coupon code for special discount',
+    code: 'NCPVIP'
+  }

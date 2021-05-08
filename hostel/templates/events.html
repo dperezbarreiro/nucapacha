@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<section class="event-area">
+    <div class="section-title text-center" data-parallax="scroll" data-image-src="/static/img/gallery/16.jpg"">
+        <h3>
+            {% if lang == 'en' %}
+                upcoming events
+            {% elif lang  == 'es' %}
+                pr&oacute;ximos eventos
+            {% endif %}</h3>
+    </div>
+    <div class="container">
+        <!--
+        <div class="row">
+            <div class="col-md-12">
+                <div class="event-menu">
+                    <button data-filter="*" class="active"> All</button>
+                    <button data-filter=".music">Music Party</button>
+                    <button data-filter=".birthday">Birthday Party</button>
+                    <button data-filter=".conference">Conference</button>
+                    <button data-filter=".wedding">Wedding Party</button>
+                    <button data-filter=".photography">Photography Party</button>
+                </div>
+            </div>
+        </div>
+        -->
+        <div class="row event-items" style="position: relative; height: 1453.16px;">
+
+            {% for e in events %}
+                <div class="single-event col-md-6 col-sm-4 col-xs-12" style="position: absolute; left: 0%; top: 0px;">
+                    <div class="single-event-item">
+                        <img src="{{e.image.url}}" alt="">
+                        <div class="event-text">
+                            <h3 class="event-title">
+                                <a href="{{e.url}}">
+                                    {% if lang == 'en' %}
+                                        {{ e.title.strip }}
+                                    {% elif lang  == 'es' %}
+                                        {{ e.title_es }}
+                                    {% endif %}
+                                </a>
+                            </h3>
+                            <div class="event-content">
+                            {% if lang == 'en' %}
+                                {{ e.text|safe }}
+                            {% elif lang  == 'es' %}
+                                {{ e.text_es|safe }}
+                            {% endif %}
+                            <span><a href="{{e.url}}">Mas Info</a></span>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--
+            <div class="single-event col-md-4 small col-sm-4 col-xs-12 music" style="position: absolute; left: 0%; top: 164px;">
+                <div class="single-event-item">
+                    <img src="static/img/event/2.jpg" alt="">
+                    <div class="event-text">
+                        <h3 class="event-title">Music Concert</h3>
+                        <h3 class="author-name">By : Jhon Doe</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-event col-md-4 small col-sm-4 col-xs-12 birthday" style="position: absolute; left: 0%; top: 487px;">
+                <div class="single-event-item">
+                    <img src="static/img/event/3.jpg" alt="">
+                    <div class="event-text">
+                        <h3 class="event-title">birthday party</h3>
+                        <h3 class="author-name">By : Marry Luis</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-event col-md-8 col-sm-8 col-xs-12 wedding" style="position: absolute; left: 0%; top: 810px;">
+                <div class="single-event-item">
+                    <img src="static/img/event/4.jpg" alt="">
+                    <div class="event-text">
+                        <h3 class="event-title">weeding party </h3>
+                        <h3 class="author-name">By : Kathy Luis</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-event col-md-8 col-sm-8 col-xs-12 photography" style="position: absolute; left: 0%; top: 975px;">
+                <div class="single-event-item">
+                    <img src="static/img/event/5.jpg" alt="">
+                    <div class="event-text">
+                        <h3 class="event-title">management conferences</h3>
+                        <h3 class="author-name">By : Dan Brown</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="single-event col-md-4 small col-sm-4 col-xs-12 photography" style="position: absolute; left: 0%; top: 1139px;">
+                <div class="single-event-item">
+                    <img src="static/img/event/6.jpg" alt="">
+                    <div class="event-text">
+                        <h3 class="event-title">photography</h3>
+                        <h3 class="author-name">By : Khaled Hossaini</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</section>
+{% endblock %}
