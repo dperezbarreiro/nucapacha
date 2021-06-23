@@ -141,7 +141,8 @@ EMAIL_PORT = 25
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Basic',
+        'toolbar': 'Full',
+        'allowedContent': True,
     },
 }
 
